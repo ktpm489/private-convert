@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@solana/web3.js": "^0.30.8",
     "bigi": "^1.4.2",
     "bip39": "^2.3.1",
     "bitcoinjs-lib": "^3.1.0",
@@ -18,6 +19,12 @@
     "ethereumjs-wallet": "^0.6.0",
     "http": "0.0.1-security",
     "nodemon": "^2.0.6",
+    "tweetnacl": "^1.0.3",
     "wif": "^2.0.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^3.0.2"
   }
 }
