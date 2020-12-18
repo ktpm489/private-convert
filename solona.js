@@ -19,11 +19,17 @@ async function generateSolonaFromPrivateETH (key) {
     console.log('account', toBase58(keyPair.publicKey) )
     console.log('privateKey', toBase58(keyPair.secretKey) )
 }
-async function generateSolona() {
+async function generateSolona(key = '') {
     // create from normal
-      const mnemonic = bip39.generateMnemonic();
+    let mnemonic
+    if (key) {
+        mnemonic = bip39.entropyToMnemonic(key);
+    } else {
+         mnemonic = bip39.generateMnemonic();
+    }
     const seed = await bip39.mnemonicToSeed(mnemonic);
     console.log('seed', seed)
+    console.log('mnemonic', mnemonic)
     const keyPair = nacl.sign.keyPair.fromSeed(seed.slice(0, 32));
     this.accountSecretKey = keyPair.secretKey;
     // console.log('keyPair', keyPair.secretKey)
@@ -34,3 +40,5 @@ async function generateSolona() {
     console.log('account', toBase58(keyPair.publicKey) )
     console.log('privateKey', toBase58(keyPair.secretKey) )
 }
+
+generateSolona('9B866C692D6DCBD9953321518AE33DC0FE29C8F135F735FA5B98C06FA85D8D93')
