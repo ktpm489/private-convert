@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cosmostation/cosmosjs": "^0.8.0",
     "@harmony-js/core": "^0.1.56",
     "@harmony-js/utils": "^0.1.56",
     "@polkadot/keyring": "^5.0.1",

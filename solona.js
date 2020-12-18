@@ -34,5 +34,3 @@ async function generateSolona() {
     console.log('account', toBase58(keyPair.publicKey) )
     console.log('privateKey', toBase58(keyPair.secretKey) )
 }
-
-abc()
