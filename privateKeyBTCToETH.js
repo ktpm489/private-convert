@@ -1,20 +1,15 @@
-const bip39 = require('bip39');
 const bs58 = require('bs58')
 const bitcoinjs = require('bitcoinjs-lib')
-const hdkey = require('ethereumjs-wallet/hdkey')
 const ethereumjsWallet = require('ethereumjs-wallet')
 const bitcore = require('bitcore-lib')
 function getETHData(wif = '') {
     let keyPair;
     try {
         keyPair = bitcoinjs.ECPair.fromWIF(wif);
-
-        if (keyPair.getAddress() !== '') {
             // strip network byte and checksum bytes in the end
             let wallet = ethereumjsWallet.fromPrivateKey(bs58.decode(keyPair.toWIF()).slice(1, 33));
             // console.log('wallet', wallet)
             return wallet
-        }
     } catch (err) {
         this.error = 'This is not a valid secret.';
         console.warn(err);
@@ -53,9 +48,11 @@ function getWalletInfoNew(privateKeyInput) {
 // *** TEST ***/ 
 // FORMAT NEW BTC 
 // // https://www.bitaddress.org/bitaddress.org-v3.3.0-SHA256-dec17c07685e1870960903d8f58090475b25af946fe95a734f88408cef4aa194.html
-getWalletInfoNew('L5Xr8SWQBmDeBRz77khNtU9frXbfUi9Bw6rAR9wBF4nDM4w3rvJL')
+// getWalletInfoNew('L5Xr8SWQBmDeBRz77khNtU9frXbfUi9Bw6rAR9wBF4nDM4w3rvJL')
+// getWalletInfoNew('L4NXg7r2ajKENUqQ1pN9oWocaR4gYKb4emMA13Y2yek1j5sB9v44')
 
 // FORMAT OLD BTC
 // https://asecuritysite.com/encryption/bit_keys
 // test https://free-online-app.com/bitcoin-ethereum-private-key-converter/
-getWalletInfoNew('5KhXAPYaoPhvjh6guHF8gJUnxdPMVwBTwrMevxVb3HGEDoF7qL4')
+// getWalletInfoNew('L5Xr8SWQBmDeBRz77khNtU9frXbfUi9Bw6rAR9wBF4nDM4w3rvJL')
+
